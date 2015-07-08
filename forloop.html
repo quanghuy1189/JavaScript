@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>For Loop</title>
+</head>
+<body>
+	<p>Click to choose your favourite genres of music then click the button below</p>
+	<form action="" name="musicForm">
+		<label for="genre">Genres of Music</label>
+		<select name="genre" id="genre" multiple="multiple">
+			<option selected="selected">Rock</option>
+			<option value="">Pop</option>
+			<option value="">Rap</option>
+			<option value="">R&B</option>
+			<option value="">Metal</option>
+			<option value="">Instrumetal</option>
+		</select>
+		<p><input type="submit" value="Click to see how many genres you've chosen" id="btn"></p>
+	</form>
+
+	<script>
+		function howMany (selectObject) {
+			var numberSelected = 0;
+			for (var i = 0; i < selectObject.options.length; i++) {
+				if (selectObject.options[i].selected)
+					numberSelected ++;
+			}
+			return numberSelected;
+		}
+
+		var btn = document.getElementById('btn');
+		btn.addEventListener('click', function() {
+			alert('You have chosen ' + howMany(document.musicForm.genre) + ' genres');
+		});
+	</script>
+</body>
+</html>
